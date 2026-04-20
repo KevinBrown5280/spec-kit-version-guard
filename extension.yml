@@ -1,0 +1,36 @@
+schema_version: "1.0"
+
+extension:
+  id: "version-guard"
+  name: "Version Guard"
+  version: "1.0.0"
+  description: "Verify tech stack versions against live registries before planning and implementation"
+  author: "KevinBrown5280"
+  repository: "https://github.com/KevinBrown5280/spec-kit-version-guard"
+  license: "MIT"
+  homepage: "https://github.com/KevinBrown5280/spec-kit-version-guard"
+
+requires:
+  speckit_version: ">=0.2.0"
+
+provides:
+  commands:
+    - name: "speckit.version-guard.check"
+      file: "commands/speckit.version-guard.check.md"
+      description: "Check locked tech stack versions against live npm registry and official docs"
+
+hooks:
+  before_plan:
+    command: "speckit.version-guard.check"
+    optional: false
+    description: "Verify tech stack versions are current before planning"
+
+  before_implement:
+    command: "speckit.version-guard.check"
+    optional: false
+    description: "Verify tech stack versions are current before code generation"
+
+tags:
+  - "version"
+  - "verification"
+  - "quality"
