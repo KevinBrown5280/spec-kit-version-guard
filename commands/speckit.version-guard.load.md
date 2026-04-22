@@ -63,6 +63,16 @@ interactive contexts.
    📋 Version guard constraints loaded from <feature_dir>/version-guard-report.md
    ```
 
+   If the report contains a `### Current-Version References` subsection with one or
+   more entries, also print:
+
+   ```
+   📚 Migration references: {N} packages have Current-Version References available — consult these before generating code.
+   ```
+
+   (Where N = count of entries under `### Current-Version References`. Omit this line
+   when no Current-Version References are present.)
+
 3. Instruct yourself:
 
    > The Compatibility Rules section above is mandatory guidance for all subsequent
@@ -75,6 +85,9 @@ interactive contexts.
    >
    > If uncertain about an API, consult the Migration References URLs before falling
    > back to training data.
+   >
+   > Treat Current-Version References as primary sources for current-version packages —
+   > your training data may predate their APIs even when they are at latest.
 
 4. If the **Known Issues** section contains any critical or high severity CVEs,
    print a reminder:

@@ -13,13 +13,13 @@ LLM agents generate code based on training data that may be months behind the la
 
 ## Solution
 
-The Version Guard extension fires before `/speckit.plan`, fetching the latest stable versions from npm and comparing them against your locked versions. For any flagged packages, it fetches official migration guides and changelogs so the agent uses real documentation — not training data — for code generation. Before `/speckit.tasks` and `/speckit.implement`, a lightweight load command re-reads the cached constraints without hitting registries again.
+The Version Guard extension fires before `/speckit.plan`, fetching the latest stable versions from npm and comparing them against your locked versions. For any flagged packages, it fetches official migration guides and changelogs so the agent uses real documentation — not training data — for code generation. For packages at current versions, the report includes documentation URLs in the Current-Version References section — giving the agent a starting point to verify locked-version APIs rather than relying solely on training data. Before `/speckit.tasks` and `/speckit.implement`, a lightweight load command re-reads the cached constraints without hitting registries again.
 
 ## Installation
 
 ```bash
 # From release
-specify extension add version-guard --from https://github.com/KevinBrown5280/spec-kit-version-guard/archive/refs/tags/v1.1.0.zip
+specify extension add version-guard --from https://github.com/KevinBrown5280/spec-kit-version-guard/archive/refs/tags/v1.2.0.zip
 
 # From main branch
 specify extension add version-guard --from https://github.com/KevinBrown5280/spec-kit-version-guard/archive/refs/heads/main.zip

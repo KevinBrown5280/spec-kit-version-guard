@@ -266,6 +266,14 @@ latest version:
 - **axios** (locked 0.27.x): https://github.com/axios/axios/blob/v0.27.2/CHANGELOG.md
 - **axios** (latest 1.7.x): https://github.com/axios/axios/blob/v1.x/CHANGELOG.md
 ...
+
+### Current-Version References
+
+If any packages are ✅ Current, include documentation URLs for them here — consult
+these before relying on training data:
+
+- **{package}** ({version}): {doc_url}
+- ...one entry per ✅ Current package (omit this subsection if no packages are current)
 ```
 
 If the output directory does not exist, create it.
@@ -290,6 +298,7 @@ No known issues found for locked versions.
 ## Compatibility Rules (mandatory)
 
 No compatibility rules — all locked versions are current.
+(See Migration References for documentation URLs on locked versions.)
 
 ## Upgrade Guidance (informational)
 
@@ -297,8 +306,31 @@ No major-version upgrades available.
 
 ## Migration References
 
-None required.
+### Current-Version References
+
+Documentation for locked versions — consult these before relying on training data for
+any package that may be newer than your model training cutoff:
+
+- **{package}** ({version}): {doc_url}
+- ...one entry per ✅ Current package
 ```
+
+**URL resolution for Current-Version References** (applies to both all-current and
+mixed reports): Use the well-known documentation URL for each package. Common mappings:
+
+- `react` → `https://react.dev/reference/react`
+- `vite` → `https://vite.dev/guide/`
+- `typescript` → `https://www.typescriptlang.org/docs/handbook/`
+- `vitest` → `https://vitest.dev/guide/`
+- `@playwright/test` → `https://playwright.dev/docs/intro`
+- `react-router` → `https://reactrouter.com/start/framework/installation`
+- `react-i18next` → `https://react.i18next.com/`
+- `i18next` → `https://www.i18next.com/overview/getting-started`
+
+For unlisted packages, use the GitHub releases page
+(`https://github.com/{org}/{package}/releases`) or the npm package page
+(`https://www.npmjs.com/package/{package}`) as static fallbacks. No HTTP fetch is
+required — these URLs are statically derived from the package name.
 
 ### Step 7 — Output summary and load constraints
 
@@ -339,6 +371,10 @@ None required.
    >
    > If uncertain about an API, consult the Migration References URLs before falling
    > back to training data.
+   >
+   > For packages at current versions, your training data may predate these releases —
+   > especially across multiple major versions. Use the Current-Version References URLs
+   > to verify API patterns before relying on training-data defaults.
 
 7. For ⚠️ Behind packages with no critical/high CVEs, and for moderate/low CVEs,
    do NOT block the workflow — continue to plan/implement. The Compatibility Rules

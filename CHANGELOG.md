@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.2.0] - 2026-04-22
+
+### Fixed
+- All-current path: `check.md` self-instruction referenced Migration References URLs that did not exist when all packages were current — the template wrote "None required" while the instruction said to consult those URLs. This internal contradiction is now resolved.
+
+### Changed
+- `check.md` Step 6 (all-current template): adds `### Current-Version References` subsection under `## Migration References` with documentation URLs for each current package
+- `check.md` Step 6 (standard template): adds `### Current-Version References` subsection for ✅ Current packages in mixed reports (behind-package URLs remain above as before)
+- `check.md` Step 6 (all-current template): adds hint in empty Compatibility Rules block pointing to Migration References
+- `check.md` Step 7.6, `load.md` Step 3: self-instructions explicitly address training-data cutoff risk for packages at current versions
+- `load.md` Step 3 summary template: reports count of current-version documentation references when available
+
+### Unchanged
+- Behind-package entries in Migration References (no regression — existing URLs for ⚠️ Behind packages remain above the new subsection in mixed reports)
+- `validate.md` (no changes — validation scope remains Compatibility Rules only)
+- Check-time network calls (no new HTTP fetches; URL strings are statically embedded)
+
 ## [1.1.0] - 2026-04-22
 
 ### Added
